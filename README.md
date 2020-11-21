@@ -1,11 +1,11 @@
 Code Quiz Challenge #4
 
-URL of the functional, deployed application:
+URL of the functional, deployed application: https://mllynch2k.github.io/code-quiz/
 
-URL of the GitHub repository:
+URL of the GitHub repository: https://github.com/MLLynch2K/code-quiz
 
 Screenshot: 
-
+![alt tag](./assets/images/04-web-apis-homework-demo.gif "Images of Mock-up")
 
 Your Task
 As you proceed in your journey to becoming a full-stack web developer, it’s likely that you’ll be asked to complete a coding assessment, perhaps as part of an interview process. A typical coding assessment is a combination of multiple-choice questions and interactive coding challenges.
