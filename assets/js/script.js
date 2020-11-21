@@ -26,11 +26,11 @@ var containerQuestionEl = document.getElementById("question-container");
       //high score array
       var HighScores = [];
 
-       //assign array details for questions 
+       //assign array for questions 
       var arrayShuffledQuestions
       var QuestionIndex = 0
       
-      // The array of questions for our quiz game.
+      //array for questions
       var questions = [
         { q: 'Inside which HTML element do we put the JavaScript?', 
           a: '3. <script>', 
@@ -84,7 +84,7 @@ var containerQuestionEl = document.getElementById("question-container");
         }
     }
 
-    //every second, check if game-over is true, or if there is time left. Start time at 30. 
+    //every second, check if game-over is true, or if there is time left with a start time at 30 
     var setTime = function () {
         timeleft = 30;
 
@@ -106,18 +106,18 @@ var containerQuestionEl = document.getElementById("question-container");
     }
 
     var startGame = function() {
-        //add classes to show/hide start and quiz screen
+        //add classes for start and quiz
         containerStartEl.classList.add('hide');
         containerStartEl.classList.remove('show');
         containerQuestionEl.classList.remove('hide');
         containerQuestionEl.classList.add('show');
-        //Shuffle the questions so they show in random order
+        //shuffle questions
         arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
         setTime()
         setQuestion()
       }
     
-    //set next question for quiz
+    //ext question for quiz
     var setQuestion = function() {
         resetAnswers()
         displayQuestion(arrayShuffledQuestions[QuestionIndex])
@@ -130,7 +130,7 @@ var containerQuestionEl = document.getElementById("question-container");
         };
     };
 
-    //display question information (including answer buttons)
+    //display question information
     var displayQuestion = function(index) {
         questionEl.innerText = index.q
         for (var i = 0; i < index.choices.length; i++) {
@@ -142,7 +142,7 @@ var containerQuestionEl = document.getElementById("question-container");
             answerbuttonsEl.appendChild(answerbutton)
             }
         };
-    //display correct! on screen
+    //display correct
     var answerCorrect = function() {
         if (correctEl.className = "hide") {
             correctEl.classList.remove("hide")
@@ -151,7 +151,7 @@ var containerQuestionEl = document.getElementById("question-container");
             wrongEl.classList.add("hide")
             }
         }  
-    //display wrong! on screen
+    //display wrong
     var answerWrong = function() {
         if (wrongEl.className = "hide") {
             wrongEl.classList.remove("hide")
@@ -175,7 +175,7 @@ var containerQuestionEl = document.getElementById("question-container");
               timeleft = timeleft - 3;
           };
 
-        //go to next question, check if there is more questions
+        //go to next question, check more questions
           QuestionIndex++
             if  (arrayShuffledQuestions.length > QuestionIndex + 1) {
                 setQuestion()
@@ -186,7 +186,7 @@ var containerQuestionEl = document.getElementById("question-container");
                 }
     }
 
-        //Display total score screen at end of game
+        //display total score screen at end of game
     var showScore = function () {
         containerQuestionEl.classList.add("hide");
         containerEndEl.classList.remove("hide");
@@ -228,7 +228,6 @@ var containerQuestionEl = document.getElementById("question-container");
       highscoreEl.innerHTML = HighScores[i].initials + " - " + HighScores[i].score;
       listHighScoreEl.appendChild(highscoreEl);
     }
-
       saveHighScore();
       displayHighScores();
 
@@ -238,7 +237,6 @@ var containerQuestionEl = document.getElementById("question-container");
         localStorage.setItem("HighScores", JSON.stringify(HighScores))
             
     }
-
     //load values/ called on page load
     var loadHighScore = function () {
         var LoadedHighScores = localStorage.getItem("HighScores")
@@ -306,7 +304,6 @@ var containerQuestionEl = document.getElementById("question-container");
     } 
 
     loadHighScore()
-        
       //on start click, start game
       btnStartEl.addEventListener("click", startGame)
       //on submit button -- enter or click
